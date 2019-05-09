@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- <meta charset="utf-8"> -->
+		<meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8">
+		<title>Posts Stats</title>
+		<base href="{{ base_url() ~ '/' }}">
+		<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="assets/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+		<link rel="stylesheet"  href="assets/jquery-ui-1.12.1/jquery-ui.min.css">
+		<link rel="stylesheet"  href="assets/css/main.css">
+		<script type="text/javascript" src="assets/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript">
+			const root_url = jQuery('base').attr('href');
+		</script>
+		<script type="text/javascript" src="assets/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" src="assets/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="assets/jquery-TableToExcel/jquery.tableToExcel.js"></script>
+		<script type="text/javascript" src="assets/js/ajax_api.js"></script>
+		<script type="text/javascript" src="assets/js/category_selector.js"></script>
+		<script type="text/javascript">
+			// turns off autocomplete function in browsers for input fields
+			jQuery(document).ready(function(){
+				$('input').attr('autocomplete', 'off');
+			});
+
+
+			// gives format to date of jquery ui datepicker
+			jQuery(document).ready(function(){
+				$( "#start_date, #end_date" ).datepicker({dateFormat: "yy-mm-dd"});
+			});
+
+
+			// JavaScript for disabling form submissions if there are invalid fields
+			(function() {
+			  'use strict';
+			  window.addEventListener('load', function() {
+			    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+			    var forms = document.getElementsByClassName('needs-validation');
+			    // Loop over them and prevent submission
+			    var validation = Array.prototype.filter.call(forms, function(form) {
+			      form.addEventListener('submit', function(event) {
+			        if (form.checkValidity() === false) {
+			          event.preventDefault();
+			          event.stopPropagation();
+			        }
+			        form.classList.add('was-validated');
+			      }, false);
+			    });
+			  }, false);
+			})();
+
+			// snippet that activates excel download on table
+			function excelDownload(link) {
+				var table = $(link).parents('.main-table-wrapper').find('table');
+				$(table).tblToExcel(link);
+			}
+		</script>
+	</head>
+	<body>
+		{% if auth.check %}
+		{% include 'templates/partials/navigation.twig' %}
+		{% endif %}
+		<div class="container-fluid">
+			{% block content %}{% endblock %}
+		</div>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+	<div class="row m-1">
+		<div class="dialog"></div>
+		<h1 class="col-12 mb-5"><i>CrtaPostsStats</i></h1>
+		<div class="col-4 p-0">
+			<div class="form_wrapper col-12 rounded border py-2">
+				<form method="post" action="http://crta-test.dash.in.rs/wp-json/crta-posts-stats/v2/all_posts?callback=cps_get_all_posts&cats='publication'" class="needs-validation main_form" novalidate>
+					<div class="form-row col-12">
+						<div class="form-group col-12 mb-5">
+						    <select id="site-select" name="site" class="custom-select custom-select-sm" required>
+						      <!-- jquery prints options content from json file -->
+						    </select>
+						    <div class="invalid-feedback">Select site you want to check</div>
+						</div>
+						<div class="form-group col-12 mb-5">
+							<label for="categories" class="text-muted" id="categories-label"><i>Pick categories</i></label>
+							<select name="category" class="custom-select  custom-select-sm" id="categories" multiple required disabled>
+								<!-- jquery prints options content on abowe select -->
+							</select>
+							<div class="invalid-feedback">Select at least one category</div>
+						</div>
+						<div class="form-group col-5 mr-5">
+							<input type="text" name="start_date" class="form-control form-control-sm" id="start_date" placeholder="Start date" required>
+							<div class="invalid-feedback">Select valid date</div>
+						</div>
+						<div class="form-group col-5">
+							<input type="text" name="end_date" class="form-control form-control-sm" id="end_date" placeholder="End date" required>
+							<div class="invalid-feedback">Select valid date</div>
+						</div>
+						<fieldset class="col-12 mt-5">
+							<button type="submit" class="btn btn-primary btn-sm mr-3">Submit</button>
+							<button type="reset" class="btn btn-secondary btn-sm">Reset</button>
+						</fieldset>
+					</div>
+				</form>
+			</div>
+			<div class="main-table-wrapper secondary-table-wrapper col-12 mt-2 p-0" style="margin-bottom: 200px">
+				
+			</div>
+		</div>
+		<div class="main-table-wrapper primary-table-wrapper col-8 pr-0">
+			
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <div class="collapse navbar-collapse">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="{{ path_for('home') }}"><i>Crta Posts Stats</i></a>
+	    </div>
+  	</div>
+  	<form method="post" action="{{ path_for('logout') }}">
+		<div class="form-group">
+			<span class="mr-5">User logged as {{ auth.user }}</span>
+   			<button class="btn btn-danger navbar-btn float-right">Logout</button>
+   			{{ csrf.field | raw }}
+   		</div>
+	</form>
+</nav>

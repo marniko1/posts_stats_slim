@@ -1,0 +1,34 @@
+.table-wrapper {
+	max-height: 500px;
+	overflow-y: scroll;
+}
+
+.table-wrapper table {
+	font-size: 12px;
+}
+
+.higher-table-wrapper {
+	max-height: 900px;
+}
+
+a.primary-excel-download,
+a.secondary-excel-download {
+	cursor: pointer;
+}
+
+a.primary-excel-download span,
+a.secondary-excel-download span {
+	color: #fff;
+}
+
+a.primary-excel-download span:after,
+a.secondary-excel-download span:after {
+	background: url('../images/excel_download.png');
+	content: '';
+	display: block;
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	top: 20%;
+	right: 5%;
+}
