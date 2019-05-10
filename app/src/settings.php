@@ -6,7 +6,7 @@ return [
 		'db' => [
 			'driver'    => 'mysql',
 	        'host'      => 'localhost',
-	        'database'  => 'wp_app',
+	        'database'  => 'db_name',
 	        'username'  => 'root',
 	        'password'  => '',
 	        'charset'   => 'utf8',
