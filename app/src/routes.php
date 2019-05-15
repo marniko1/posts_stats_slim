@@ -16,7 +16,6 @@ return function (App $app, $container) {
 	$app->post('/authenticate', 'LoginController:postLogin');
 
 	$app->group('/api', function () {
-		var_dump($_SERVER['HTTP_AUTHORIZATION']); die;
 		$this->post('/options', 'ApiController:setOptions');
 	});
 
